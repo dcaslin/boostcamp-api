@@ -1,32 +1,27 @@
-# 🏋️‍♂️ Boostcamp API: Gainz for your Python Scripts
+# Boostcamp API
 
-An unofficial, asynchronous Python client for the [Boostcamp](https://www.boostcamp.app/) fitness app API. Because your data deserves a heavy lifting session too! 🚀
+An unofficial, asynchronous Python client for the [Boostcamp](https://www.boostcamp.app/) fitness app API. Modeled after the `monarchmoney` client, it provides access to workout data, training history, and program details.
 
-Modeled after the sleek `monarchmoney` client, this library lets you pull your workout data, training history, and program details without breaking a sweat.
+## Features
 
-## ✨ Features
+- Asynchronous client built on `aiohttp`.
+- Full lifting history retrieval.
+- Program search and discovery.
+- Dashboard statistics (streaks, total volume, muscle distribution).
+- Session persistence with automatic re-authentication on token expiry.
 
-- **Asynchronous & Fast:** Built on `aiohttp` for maximum performance.
-- **Full History:** Get every rep and set you've ever logged. 📈
-- **Program Discovery:** Search the entire Boostcamp library for your next challenge.
-- **Dashboard Stats:** Track your streaks, total volume, and muscle distribution. 🦾
-- **Session Persistence:** Login once, save your session, and stay authenticated.
-
-## 🛠 Requirements
+## Requirements
 
 - Python 3.8+
-- `aiohttp` (The heavy lifter)
+- `aiohttp>=3.8.0`
 
-## 🚀 Quick Start
-
-### Installation
+## Installation
 
 ```bash
-# Clone and install in editable mode
 pip install -e .
 ```
 
-### Basic Usage
+## Usage
 
 ```python
 import asyncio
@@ -34,42 +29,44 @@ from boostcampapi import BoostcampAPI
 
 async def main():
     api = BoostcampAPI()
-    
-    # Login (or load a saved session)
+
     if not api.load_session():
-        await api.login("beast@mode.com", "lightweight_baby")
-    
-    # Get your dashboard summary
+        await api.login("you@example.com", "your_password")
+
     summary = await api.get_home_summary()
-    print(f"🔥 Current Streak: {summary['data']['week_streak']} weeks")
-    
-    # Fetch your lifting history
+    print(f"Current streak: {summary['data']['week_streak']} weeks")
+
     history = await api.get_training_history()
-    print(f"📚 You've logged {len(history['data'])} days of workouts!")
+    print(f"Logged {len(history['data'])} days of workouts")
 
 asyncio.run(main())
 ```
 
-## 🔐 Authentication Note (Google/Apple Users)
+## Authentication (Google/Apple Users)
 
-If you usually tap the Google or Apple button to log in, you'll need to set a "traditional" password to use this API:
+If you sign in to Boostcamp with Google or Apple, set a password before using this API:
 
-1. Head to the [Boostcamp Login Page](https://www.boostcamp.app/login).
-2. Enter your email and click **"Forgot Password?"**.
-3. Set your new password via the email link.
-4. Use those credentials to start scripting! 🔓
+1. Go to the [Boostcamp login page](https://www.boostcamp.app/login).
+2. Enter your email and click **Forgot Password?**.
+3. Set a new password via the email link.
+4. Use that email and password to authenticate.
 
-## 📊 Discovered Endpoints
+## API Reference
 
-Check out [BOOSTCAMP_API.md](./BOOSTCAMP_API.md) for the full breakdown of everything we've reverse-engineered so far.
+See [BOOSTCAMP_API.md](./BOOSTCAMP_API.md) for the documented endpoints.
 
-## 🤝 Contributing
+## Contributing
 
-Found a new endpoint? Want to add a feature? Open a PR! Let's build the ultimate tool for data-driven athletes. 🤝
+Contributions are welcome. Open a pull request to add endpoints or features.
 
-## 🙏 Credits
+## Credits
 
-This project started life as a fork of [Alex-Keyes/boostcamp-api](https://github.com/Alex-Keyes/boostcamp-api) — massive thanks to [@Alex-Keyes](https://github.com/Alex-Keyes) for laying the original foundation. 🏋️ It has since grown into its own standalone repo, but that original groundwork made the heavy lifting a whole lot lighter.
+This project began as a fork of [Alex-Keyes/boostcamp-api](https://github.com/Alex-Keyes/boostcamp-api) and has since grown into a standalone repository.
+
+## License
+
+Released under the [MIT License](./LICENSE).
 
 ---
-*Disclaimer: This is an unofficial project and is not affiliated with Boostcamp. Use responsibly and don't be a jerk to their servers.*
+
+*Disclaimer: This is an unofficial project and is not affiliated with Boostcamp.*
