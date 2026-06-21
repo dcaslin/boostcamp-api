@@ -67,5 +67,9 @@ Check out [BOOSTCAMP_API.md](./BOOSTCAMP_API.md) for the full breakdown of every
 
 Found a new endpoint? Want to add a feature? Open a PR! Let's build the ultimate tool for data-driven athletes. 🤝
 
+## 🙏 Credits
+
+This project started life as a fork of [Alex-Keyes/boostcamp-api](https://github.com/Alex-Keyes/boostcamp-api) — massive thanks to [@Alex-Keyes](https://github.com/Alex-Keyes) for laying the original foundation. 🏋️ It has since grown into its own standalone repo, but that original groundwork made the heavy lifting a whole lot lighter.
+
 ---
 *Disclaimer: This is an unofficial project and is not affiliated with Boostcamp. Use responsibly and don't be a jerk to their servers.*
